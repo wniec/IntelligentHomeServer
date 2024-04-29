@@ -1,3 +1,5 @@
+package Devices
+
 import scala.collection.mutable
 class Fridge(val products:mutable.Map[String, Int], var temperature: Float = 4) {
   def put(product: String): Unit = {
@@ -17,6 +19,6 @@ class Fridge(val products:mutable.Map[String, Int], var temperature: Float = 4) 
       this.temperature = temperature
     }
     else
-      throw throw new Exception("temperature in Fridge must be between 0 and 8 Celsius Degrees")
+      throw throw new Exception("temperature in Devices.Fridge must be between 0 and 8 Celsius Degrees")
   }
 }

@@ -1,4 +1,4 @@
-import scala.math
+package Devices
 
 class Lamp(var brightness: Int, var on: Boolean) {
   def turnOn(): Unit = on = true

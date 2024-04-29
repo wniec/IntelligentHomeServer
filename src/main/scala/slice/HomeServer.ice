@@ -4,23 +4,24 @@
 
 module Home
 {
-  enum operation { MIN, MAX, AVG };
+  enum operation { TURNON, TURNOFF, RESTART, OPEN, CLOSE};
   
   exception NoInput {};
-
-  struct A
+  dictionary <string, int> contents;
+  struct Fridge
   {
-    short a;
-    long b;
-    float c;
-    string d;
+    contents freezerContents;
+    contents fridgeContents;
+    double temperature;
   };
 
   interface HomeServer
   {
-    long add(int a, int b);
-    long subtract(int a, int b);
-    void op(A a1, short b1);
+    void move(string what, double x, double y);
+    void set(string what, double value);
+    void perform(operation op, short b1);
+    string list();
+    void put(string where, contents what);
   };
 
 };

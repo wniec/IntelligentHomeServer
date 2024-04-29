@@ -1,3 +1,5 @@
+package Devices
+
 class Camera(var phi: Double, var psi: Double, val maxZoom:Double, val minZoom: Double, var zoom: Double){
   def move_detected: Boolean= {
     val rand = new scala.util.Random
