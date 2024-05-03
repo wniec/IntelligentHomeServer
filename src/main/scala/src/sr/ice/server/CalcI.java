@@ -1,8 +1,9 @@
+/*
 package sr.ice.server;
-
 import Demo.A;
 import Demo.Calc;
 import com.zeroc.Ice.Current;
+
 
 public class CalcI implements Calc {
 	private static final long serialVersionUID = -2448962912780867770L;
@@ -34,7 +35,7 @@ public class CalcI implements Calc {
 
 
 	@Override
-	public /*synchronized*/ void op(A a1, short b1, Current current) {
+	public synchronized void op(A a1, short b1, Current current) {
 		System.out.println("OP" + (++counter));
 		try {
 			Thread.sleep(500);
@@ -43,3 +44,4 @@ public class CalcI implements Calc {
 		}
 	}
 }
+*/

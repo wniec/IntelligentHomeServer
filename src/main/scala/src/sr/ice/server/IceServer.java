@@ -1,3 +1,4 @@
+/*
 package sr.ice.server;
 
 import com.zeroc.Ice.Communicator;
@@ -58,4 +59,4 @@ public class IceServer {
 		IceServer app = new IceServer();
 		app.t1(args);
 	}
-}
+}*/

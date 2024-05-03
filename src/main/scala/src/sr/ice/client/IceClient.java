@@ -1,4 +1,4 @@
-package sr.ice.client;
+/*package sr.ice.client;
 
 import Demo.A;
 import Demo.CalcPrx;
@@ -78,7 +78,7 @@ public class IceClient {
 							System.out.println("RESULT = " + r);
 							break;
 
-						/* PONIŻEJ WYWOŁANIA REALIZOWANE W TRYBIE ASYNCHRONICZNYM */
+						// PONIŻEJ WYWOŁANIA REALIZOWANE W TRYBIE ASYNCHRONICZNYM
 
 						case "add-asyn1": //future-based
 							obj1.addAsync(7000, 8000).whenComplete((result, ex) -> System.out.println("RESULT (asyn) = " + result));
@@ -107,7 +107,7 @@ public class IceClient {
 							System.out.println("DONE");
 							break;
 
-						/* PONIŻEJ USTAWIANIE TRYBU PRACY PROXY */
+						// PONIŻEJ USTAWIANIE TRYBU PRACY PROXY
 
 						case "compress on":
 							obj1 = obj1.ice_compress(true);
@@ -174,3 +174,4 @@ public class IceClient {
 	}
 
 }
+*/

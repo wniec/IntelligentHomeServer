@@ -1,24 +1,34 @@
 package Devices
 
+import com.zeroc.Ice.Current
+
+import java.util
 import scala.collection.mutable
-class Fridge(val products:mutable.Map[String, Int], var temperature: Float = 4) {
-  def put(product: String): Unit = {
+import scala.jdk.CollectionConverters.MapHasAsJava
+class Fridge(val products:mutable.Map[String, Int], var temperature: Double = 4.0) extends generated.Fridge{
+  override def put(product: String, amount: Int, current: Current): Unit = {
     if(products.contains(product))
-      products(product) += 1
+      products(product) += amount
     else
-      products(product) = 1
+      products(product) = amount
   }
-  def take(product: String): Unit = {
-    if(products(product) > 1)
-      products(product) -= 1
-    else
+  override def take(product: String, amount: Int, current: Current): Unit = {
+    if(products(product) > amount)
+      products(product) -= amount
+    else if(products(product) == amount)
       products.remove(product)
+    else
+      throw new Exception("THERE IS NOTHING TO TAKE")
   }
-  def setTemperature(temperature: Int):Unit={
+  override def setTemperature(temperature: Double, current: Current):Unit={
     if(0 <= temperature && temperature <= 8){
       this.temperature = temperature
     }
     else
-      throw throw new Exception("temperature in Devices.Fridge must be between 0 and 8 Celsius Degrees")
+      throw new Exception("TEMPERATURE IN FRIDGE MUST BE BETWEEN 0 AND 8 CELSIUS DEGREES")
+  }
+
+  override def list(current: Current): util.Map[String, Integer] = {
+    products.map((kv:(String, Int)) => (kv._1,Integer.valueOf(kv._2))).asJava
   }
 }
