@@ -23,6 +23,7 @@ class Fridge(val products:mutable.Map[String, Int], var temperature: Double = 4.
   override def setTemperature(temperature: Double, current: Current):Unit={
     if(0 <= temperature && temperature <= 8){
       this.temperature = temperature
+      println(s"FRIDGE TEMPERATURE IS SET TO $temperature")
     }
     else
       throw new Exception("TEMPERATURE IN FRIDGE MUST BE BETWEEN 0 AND 8 CELSIUS DEGREES")

@@ -1,9 +1,11 @@
 package Devices
 
 import com.zeroc.Ice.Current
+import generated.InvalidArgument
 
 class Camera(var phi: Double, var psi: Double, val maxZoom: Double, val minZoom: Double, var zoom: Double) extends generated.Camera {
   override def move(phi: Double, psi: Double, current: Current): Unit = {
+    println(s"MOVING CAMERA TO $psi , $phi")
     turnVertically(psi)
     turnHorizontally(phi)
   }
@@ -12,14 +14,14 @@ class Camera(var phi: Double, var psi: Double, val maxZoom: Double, val minZoom:
     if (this.zoom * value <= maxZoom)
       this.zoom *= value
     else
-      throw new Exception("Zoom exceeds maximum zoom limit")
+      throw new InvalidArgument("ZOOM EXCEEDS MAXIMUM ZOOM LIMIT")
   }
 
   override def zoomOut(value: Double, current: Current): Unit = {
     if (this.zoom / value >= minZoom)
       this.zoom /= value
     else
-      throw new Exception("Zoom exceeds minimum zoom limit")
+      throw new InvalidArgument("ZOOM EXCEEDS MINIMUM ZOOM LIMIT")
   }
 
   override def moveDetected(current: Current): Boolean = {
